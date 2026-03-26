@@ -381,7 +381,7 @@ tr:hover { background: rgba(0,188,212,0.05); }
 <nav class="sidebar">
     <div class="sidebar-title">ASX Pine Lab</div>
     <div id="heartbeat-indicator" class="heartbeat-bar dead">OFFLINE</div>
-    <div style="padding:4px 16px;font-size:0.7rem;color:var(--text-dim)">Generated: 2026-03-26 18:10:02</div>
+    <div style="padding:4px 16px;font-size:0.7rem;color:var(--text-dim)">Generated: 2026-03-26 18:17:18</div>
 
     <div class="sidebar-group">Overview</div>
     <div class="sidebar-item" onclick="showPanel('roadmap')" id="nav-roadmap">Roadmap</div>
@@ -482,9 +482,15 @@ const DATA_AGENT_LIST = {"total": 82, "categories": {"RESEARCH": ["alpha_hunter"
 const DATA_SCORECARD = {"timestamp": "2026-03-26T17:27:48.056459", "status": "OK", "overall_score": 81, "overall_grade": "B", "domains": [{"domain": "Code Quality", "score": 59, "grade": "C", "issues": ["2 Pine Script issues"]}, {"domain": "Infrastructure", "score": 61, "grade": "C", "issues": ["38 uncommitted changes"]}, {"domain": "Risk Management", "score": 70, "grade": "B", "issues": ["Mom stop 0 outside safe range [3-5]", "MR stop 0 outside safe range [2-4]"]}, {"domain": "Dashboard", "score": 76, "grade": "B", "issues": []}, {"domain": "Strategy Quality", "score": 85, "grade": "A", "issues": []}, {"domain": "Market Awareness", "score": 85, "grade": "A", "issues": ["No macro asset tracking"]}, {"domain": "Data Sources", "score": 90, "grade": "A", "issues": ["Yahoo degraded"]}, {"domain": "Security", "score": 90, "grade": "A", "issues": []}, {"domain": "Research & Improvement", "score": 90, "grade": "A", "issues": []}, {"domain": "Agent Health", "score": 100, "grade": "A", "issues": []}], "weakest": "Code Quality", "strongest": "Agent Health", "needs_attention": [], "duration_s": 0.0};
 const DATA_USER_NEEDS = [{"id": 1, "priority": "HIGH", "title": "Start turbo on desktop", "detail": "Double-click START_TURBO.bat on BAZIL. Desktop is offline \u2014 turbo can't run without it.", "status": "waiting"}, {"id": 2, "priority": "HIGH", "title": "Run enable_remote_access.bat as Admin", "detail": "Enables WinRM so Mac can restart turbo remotely. One-time setup, run as Administrator.", "status": "waiting"}, {"id": 3, "priority": "MEDIUM", "title": "TradingView CSV exports for v9 validation", "detail": "Export backtest results from TV for top 12 stocks. Paste CSVs into backtests/tv_exports/. Needed to calibrate Python vs TV gap.", "status": "waiting"}, {"id": 4, "priority": "MEDIUM", "title": "Create .env on desktop with Alpha Vantage key", "detail": "File: C:\\Users\\...\\ASX-Pine-Lab\\.env containing: ALPHA_VANTAGE_API_KEY=71MV4TPKJJFT4T1K", "status": "waiting"}, {"id": 5, "priority": "MEDIUM", "title": "TradingView screenshots of v9 strategy on key stocks", "detail": "Screenshots of BHP, FMG, PLS, IGO, BOE, WHC on daily chart with v9 strategy loaded. Helps verify entries visually.", "status": "waiting"}, {"id": 6, "priority": "LOW", "title": "pip3 install pywinrm on Mac", "detail": "Enables direct WinRM remote control of desktop from Mac. Run: pip3 install pywinrm", "status": "waiting"}, {"id": 7, "priority": "LOW", "title": "ASX sector ETF data access", "detail": "If you have access to XMJ, XEJ, XGD, XMM ETF data or screenshots, helps sector rotation analysis.", "status": "waiting"}, {"id": 8, "priority": "LOW", "title": "Interactive Brokers trade history export", "detail": "If you have real trade history, export as CSV. Helps calibrate backtest vs real execution.", "status": "waiting"}];
 const DATA_NET_MONITOR = {};
+const DATA_DEFENDER = {};
+const DATA_GIT_INTEGRITY = {};
+const DATA_CRED_MANAGER = {};
+const DATA_RESTORE_VERIFY = {};
+const DATA_AUDIT_TRAIL = {};
+const DATA_DEFENDER_LOG = {};
 const DATA_NET_SECURITY = {};
 const DATA_WEAKNESS = {"timestamp": "2026-03-26T17:22:46.674871", "status": "OK", "baseline": {"pf": 1.628, "wr": 71.1, "trades": 194}, "components_tested": 0, "strong": 0, "weak": 0, "neutral": 0, "rankings": [], "weakest": null, "strongest": null, "recommendations": [], "duration_s": 3.9};
-const DATA_AUDIT_HB = {"timestamp": "2026-03-26T18:09:53.506858", "machine": "Baileys-MacBook-Air-2.local", "cycle": 4, "phase": "starting", "status": "RUNNING", "pid": 62103, "findings": {"critical": 0, "warning": 0, "ok": 0}, "cycle_time_s": 0};
+const DATA_AUDIT_HB = {"timestamp": "2026-03-26T18:16:17.677992", "machine": "Baileys-MacBook-Air-2.local", "cycle": 3, "phase": "starting", "status": "RUNNING", "pid": 62499, "findings": {"critical": 0, "warning": 0, "ok": 0}, "cycle_time_s": 0};
 const DATA_AUDIT_RPT = {"timestamp": "2026-03-26T17:27:48.146591", "cycle": 1, "machine": "Baileys-MacBook-Air-2.local", "mode": "ACTIVE", "status": "WARNING", "cycle_time_s": 53.0, "findings_summary": {"critical": 0, "warning": 2, "ok": 13}, "agents_summary": {"ok": 28, "failed": 0, "total": 28}, "fixes_applied": 2, "findings": [{"severity": "OK", "check": "git_branch", "detail": "On main"}, {"severity": "WARNING", "check": "git_dirty", "detail": "25 uncommitted changes"}, {"severity": "OK", "check": "sync_behind", "detail": "Up to date"}, {"severity": "OK", "check": "dashboard_age", "detail": "1 min old"}, {"severity": "OK", "check": "agent_errors", "detail": "All agents healthy"}, {"severity": "OK", "check": "disk", "detail": "352.4GB free"}, {"severity": "OK", "check": "python_version", "detail": "3.9.6"}, {"severity": "OK", "check": "network", "detail": "GitHub reachable"}, {"severity": "WARNING", "check": "turbo_status", "detail": "OFFLINE (999m ago)"}, {"severity": "OK", "check": "platform_compat", "detail": "No hardcoded paths found"}, {"severity": "OK", "check": "turbo_performance", "detail": "Turbo performance NORMAL: avg=0s"}, {"severity": "OK", "check": "quarantined_agents", "detail": "No agents quarantined"}, {"severity": "OK", "check": "agent_imports", "detail": "All 96 agents import OK"}, {"severity": "OK", "check": "json_validity", "detail": "All 125 JSON files valid"}, {"severity": "OK", "check": "process_count", "detail": "0 pipeline processes"}], "agent_results": [{"agent": "agent_health", "success": true, "duration": 0.9, "error": ""}, {"agent": "agent_cascade_checker", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_config_integrity", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_dashboard_health_monitor", "success": true, "duration": 0.1, "error": ""}, {"agent": "agent_quality_watchdog", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_reality_checker", "success": true, "duration": 0.4, "error": ""}, {"agent": "agent_consensus", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_root_cause_tracer", "success": true, "duration": 2.2, "error": ""}, {"agent": "agent_baseline_validator", "success": true, "duration": 15.7, "error": ""}, {"agent": "agent_strategy_auditor", "success": true, "duration": 31.0, "error": ""}, {"agent": "agent_fix_verifier", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_pine_compiler", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_backup_verifier", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_bat_linter", "success": true, "duration": 0.1, "error": ""}, {"agent": "agent_latency_monitor", "success": true, "duration": 2.0, "error": ""}, {"agent": "agent_security", "success": true, "duration": 5.1, "error": ""}, {"agent": "agent_predictive_maintenance", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_turbo_performance", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_notifier", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_trend_charts", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_improvement_engine", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_system_architect", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_auto_scaler", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_drawdown_predictor", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_cost_analysis", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_system_scorecard", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_self_tuner", "success": true, "duration": 0.0, "error": ""}, {"agent": "agent_dashboard_improver", "success": true, "duration": 0.0, "error": ""}], "fixes": [{"fix": "Cleaned 1 old backup files (kept last 21)", "timestamp": "2026-03-26T17:27:45.492805", "cycle": 1}, {"fix": "AUTO-IE: Regenerated dashboard (pipeline stale)", "source": "improvement_engine", "timestamp": "2026-03-26T17:27:48.113759", "auto": true}]};
 const DATA_AUDIT_RES = {"timestamp": "2026-03-26T17:23:44.919519", "total_proposals": 3, "by_area": {"ERROR_PATTERNS": 3, "DASHBOARD": 2}, "by_priority": {"HIGH": 3, "MEDIUM": 2}, "proposals": [{"area": "ERROR_PATTERNS", "priority": "HIGH", "title": "WATCHDOG_RESTART occurred 160 times in recent history", "detail": "Recurring WATCHDOG_RESTART errors suggest systemic issue", "fix": "Investigate root cause of WATCHDOG_RESTART pattern", "effort": "1-2 hours", "auto_fixable": false}, {"area": "ERROR_PATTERNS", "priority": "HIGH", "title": "TIMEOUT occurred 10 times in recent history", "detail": "Recurring TIMEOUT errors suggest systemic issue", "fix": "Investigate root cause of TIMEOUT pattern", "effort": "1-2 hours", "auto_fixable": false}, {"area": "ERROR_PATTERNS", "priority": "MEDIUM", "title": "PREFLIGHT occurred 4 times in recent history", "detail": "Recurring PREFLIGHT errors suggest systemic issue", "fix": "Investigate root cause of PREFLIGHT pattern", "effort": "1-2 hours", "auto_fixable": false}], "auto_applied": 2};
 
@@ -2812,56 +2818,106 @@ function wrColor(wr) {
     div.innerHTML = html;
 })();
 
-// ---- Network Status (appended to Security panel) ----
+// ---- Full Security Dashboard ----
 (function() {
     var sec_div = document.getElementById('security-content');
     if (!sec_div) return;
+    var def = DATA_DEFENDER;
     var nm = DATA_NET_MONITOR;
     var ns = DATA_NET_SECURITY;
-    var html = sec_div.innerHTML;
+    var gi = DATA_GIT_INTEGRITY;
+    var cm = DATA_CRED_MANAGER;
+    var rv = DATA_RESTORE_VERIFY;
+    var at = DATA_AUDIT_TRAIL;
+    var dl = DATA_DEFENDER_LOG;
+    var html = '';
 
-    // Network connectivity
-    html += '<h3 style="margin:16px 0 8px;color:var(--green)">Network Status</h3>';
+    // Defender Status — TOP PRIORITY
+    var def_color = (def.status === 'CLEAR') ? 'var(--green)' : (def.status === 'ALERT') ? 'var(--red)' : 'var(--yellow)';
+    html += '<div style="text-align:center;margin:10px 0"><span style="background:' + def_color + ';color:#fff;padding:6px 20px;border-radius:20px;font-weight:bold;font-size:1.1rem">DEFENDER: ' + (def.status || 'UNKNOWN') + '</span></div>';
+
+    html += '<div class="stat-grid">';
+    html += '<div class="stat-box"><div class="stat-label">THREATS</div><div class="stat-value" style="color:' + (def.threats_found > 0 ? 'var(--red)' : 'var(--green)') + '">' + (def.threats_found || 0) + '</div></div>';
+    html += '<div class="stat-box"><div class="stat-label">CRITICAL</div><div class="stat-value" style="color:' + (def.critical > 0 ? 'var(--red)' : 'var(--green)') + '">' + (def.critical || 0) + '</div></div>';
+    html += '<div class="stat-box"><div class="stat-label">TRAIL</div><div class="stat-value" style="color:' + (at.tampered ? 'var(--red)' : 'var(--green)') + '">' + (at.tampered ? 'TAMPERED' : (at.chain_length || 0) + ' OK') + '</div></div>';
+    html += '</div>';
+
+    // Active threats
+    if (def.threats && def.threats.length > 0) {
+        html += '<h3 style="margin:16px 0 8px;color:var(--red)">Active Threats</h3>';
+        for (var i = 0; i < def.threats.length; i++) {
+            var t = def.threats[i];
+            var tc = t.severity === 'CRITICAL' ? 'var(--red)' : 'var(--orange)';
+            html += '<div style="background:var(--bg2);padding:8px 10px;border-radius:4px;margin:3px 0;border-left:3px solid ' + tc + '">';
+            html += '<div style="font-weight:bold;color:' + tc + '">[' + t.type + '] ' + t.severity + '</div>';
+            html += '<div style="font-size:0.84rem">' + t.detail + '</div>';
+            html += '<div style="font-size:0.78rem;color:var(--text-dim)">Action: ' + (t.action || 'none') + '</div>';
+            html += '</div>';
+        }
+    }
+
+    // Network
+    html += '<h3 style="margin:16px 0 8px;color:var(--green)">Network</h3>';
     if (nm && nm.paths) {
         for (var i = 0; i < nm.paths.length; i++) {
             var p = nm.paths[i];
-            var color = p.reachable ? (p.winrm ? 'var(--green)' : 'var(--yellow)') : 'var(--red)';
-            var status = p.reachable ? (p.winrm ? 'CONNECTED + REMOTE' : 'CONNECTED') : 'DOWN';
-            html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;border-left:3px solid ' + color + ';display:flex;justify-content:space-between">';
-            html += '<span>' + p.path.replace('_', ' ').toUpperCase() + '</span>';
-            html += '<span style="color:' + color + '">' + status + '</span>';
-            html += '</div>';
+            var pc = p.reachable ? (p.winrm ? 'var(--green)' : 'var(--yellow)') : 'var(--red)';
+            var ps = p.reachable ? (p.winrm ? 'FULL ACCESS' : 'PING ONLY') : 'DOWN';
+            html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + pc + ';display:flex;justify-content:space-between">';
+            html += '<span>' + p.path.replace('_',' ').toUpperCase() + '</span><span style="color:' + pc + '">' + ps + '</span></div>';
         }
     }
-
-    // Tailscale VPN
     if (nm && nm.tailscale) {
         var ts = nm.tailscale;
-        var tsColor = ts.running ? 'var(--green)' : 'var(--red)';
-        html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;border-left:3px solid ' + tsColor + ';display:flex;justify-content:space-between">';
-        html += '<span>TAILSCALE VPN</span>';
-        html += '<span style="color:' + tsColor + '">' + (ts.running ? 'ACTIVE (' + (ts.peers||[]).length + ' peers)' : ts.installed ? 'INSTALLED (not running)' : 'NOT INSTALLED') + '</span>';
-        html += '</div>';
+        var tsc = ts.running ? 'var(--green)' : 'var(--red)';
+        html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + tsc + ';display:flex;justify-content:space-between">';
+        html += '<span>TAILSCALE VPN</span><span style="color:' + tsc + '">' + (ts.running ? 'ACTIVE (' + (ts.peers||[]).length + ' peers)' : 'OFF') + '</span></div>';
     }
 
-    // Network security checks
-    if (ns && ns.checks) {
-        html += '<h3 style="margin:16px 0 8px;color:var(--yellow)">Security Checks</h3>';
-        for (var i = 0; i < ns.checks.length; i++) {
-            var ch = ns.checks[i];
-            var color = ch.status === 'OK' ? 'var(--green)' : ch.status === 'SKIP' ? 'var(--gray)' : 'var(--yellow)';
-            html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + color + '">';
-            html += ch.check.replace(/_/g, ' ') + ': ' + ch.detail;
-            html += '</div>';
+    // Git Integrity
+    html += '<h3 style="margin:16px 0 8px;color:var(--yellow)">Git Integrity</h3>';
+    var gi_color = gi.status === 'OK' ? 'var(--green)' : 'var(--red)';
+    html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + gi_color + '">';
+    html += 'Status: ' + (gi.status || '?') + ' | Issues: ' + (gi.issues ? gi.issues.length : 0) + '</div>';
+    if (gi.issues) {
+        for (var i = 0; i < gi.issues.length; i++) {
+            html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.82rem;border-left:3px solid var(--red)">[' + gi.issues[i].severity + '] ' + gi.issues[i].detail + '</div>';
         }
     }
-    if (ns && ns.issues && ns.issues.length > 0) {
-        html += '<h3 style="margin:12px 0 8px;color:var(--red)">Security Alerts</h3>';
-        for (var i = 0; i < ns.issues.length; i++) {
-            var iss = ns.issues[i];
-            html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;border-left:3px solid var(--red);font-size:0.84rem">';
-            html += '[' + iss.severity + '] ' + iss.detail;
-            html += '</div>';
+
+    // Credentials
+    html += '<h3 style="margin:16px 0 8px;color:var(--purple)">Credentials</h3>';
+    html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + (cm.status === 'OK' ? 'var(--green)' : 'var(--yellow)') + '">';
+    html += 'Keys tracked: ' + (cm.keys_tracked || 0) + ' | Status: ' + (cm.status || '?') + '</div>';
+    if (cm.issues) {
+        for (var i = 0; i < cm.issues.length; i++) {
+            html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.82rem;border-left:3px solid var(--orange)">' + cm.issues[i].detail + '</div>';
+        }
+    }
+
+    // File Integrity
+    html += '<h3 style="margin:16px 0 8px;color:var(--green)">File Integrity</h3>';
+    html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.84rem;border-left:3px solid ' + (rv.status === 'OK' ? 'var(--green)' : 'var(--yellow)') + '">';
+    html += 'Verified: ' + (rv.verified || 0) + ' files | Issues: ' + (rv.issues ? rv.issues.length : 0) + '</div>';
+
+    // Security checks from network_security
+    if (ns && ns.checks && ns.checks.length > 0) {
+        html += '<h3 style="margin:16px 0 8px;color:var(--green)">Security Checks</h3>';
+        for (var i = 0; i < ns.checks.length; i++) {
+            var ch = ns.checks[i];
+            var cc = ch.status === 'OK' ? 'var(--green)' : 'var(--yellow)';
+            html += '<div style="background:var(--bg2);padding:3px 10px;border-radius:3px;margin:1px 0;font-size:0.82rem;border-left:3px solid ' + cc + '">' + ch.check.replace(/_/g,' ') + ': ' + ch.detail + '</div>';
+        }
+    }
+
+    // Recent defender events
+    if (dl && dl.events && dl.events.length > 0) {
+        html += '<h3 style="margin:16px 0 8px;color:var(--red)">Recent Events</h3>';
+        var recent = dl.events.slice(-5).reverse();
+        for (var i = 0; i < recent.length; i++) {
+            var e = recent[i];
+            html += '<div style="background:var(--bg2);padding:4px 10px;border-radius:3px;margin:2px 0;font-size:0.82rem;border-left:3px solid var(--yellow)">';
+            html += e.timestamp.substring(0,16) + ' | ' + (e.critical_count || 0) + ' critical, ' + (e.threats ? e.threats.length : 0) + ' total</div>';
         }
     }
 
