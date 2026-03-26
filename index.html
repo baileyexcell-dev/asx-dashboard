@@ -381,7 +381,7 @@ tr:hover { background: rgba(0,188,212,0.05); }
 <nav class="sidebar">
     <div class="sidebar-title">ASX Pine Lab</div>
     <div id="heartbeat-indicator" class="heartbeat-bar dead">OFFLINE</div>
-    <div style="padding:4px 16px;font-size:0.7rem;color:var(--text-dim)">Generated: 2026-03-26 17:38:42</div>
+    <div style="padding:4px 16px;font-size:0.7rem;color:var(--text-dim)">Generated: 2026-03-26 17:45:20</div>
 
     <div class="sidebar-group">Overview</div>
     <div class="sidebar-item" onclick="showPanel('roadmap')" id="nav-roadmap">Roadmap</div>
@@ -553,6 +553,30 @@ const DATA_SELF_TUNING = {"current_thresholds": {"reality_wr_threshold": 67.0, "
 <div class="section">
 <div class="section-title"><span class="icon">&#x1F50D;</span> AUDIT MODE</div>
 <div id="audit-content"></div>
+</div>
+</div>
+
+<!-- ====== PANEL: ACTIVE STRATEGIES ====== -->
+<div class="panel" id="panel-strategies">
+<div class="section">
+<div class="section-title"><span class="icon">&#x1F4C8;</span> ACTIVE STRATEGIES</div>
+<div id="strategies-content"></div>
+</div>
+</div>
+
+<!-- ====== PANEL: UP & COMING ====== -->
+<div class="panel" id="panel-upcoming">
+<div class="section">
+<div class="section-title"><span class="icon">&#x1F680;</span> UP &amp; COMING STRATEGIES</div>
+<div id="upcoming-content"></div>
+</div>
+</div>
+
+<!-- ====== PANEL: RESEARCH LAB ====== -->
+<div class="panel" id="panel-research">
+<div class="section">
+<div class="section-title"><span class="icon">&#x1F52C;</span> RESEARCH LAB</div>
+<div id="research-content"></div>
 </div>
 </div>
 
@@ -2654,6 +2678,118 @@ function wrColor(wr) {
 
 
 
+
+
+// ---- Active Strategies Panel ----
+(function() {
+    var div = document.getElementById('strategies-content');
+    if (!div) return;
+    var bp = DATA_PARAMS;
+    var tv = DATA_TV;
+    var rc = DATA_REALITY;
+    var html = '';
+
+    // V9 Strategy Card
+    html += '<div style="background:var(--bg2);padding:16px;border-radius:8px;margin:8px 0;border-left:4px solid var(--green)">';
+    html += '<div style="display:flex;justify-content:space-between;align-items:center">';
+    html += '<div><div style="font-size:1.3rem;font-weight:bold;color:var(--green-bright)">ASX Optimized V9</div>';
+    html += '<div style="color:var(--text-dim);font-size:0.85rem">Primary Strategy — TV Validated 2026-03-24</div></div>';
+    html += '<div style="background:var(--green);color:#fff;padding:4px 12px;border-radius:12px;font-weight:bold">ACTIVE</div>';
+    html += '</div>';
+    html += '<div class="stat-grid" style="margin-top:12px">';
+    html += '<div class="stat-box"><div class="stat-label">PF</div><div class="stat-value">' + (bp.pf || '?') + '</div></div>';
+    html += '<div class="stat-box"><div class="stat-label">WR</div><div class="stat-value">' + (bp.wr ? bp.wr + '%' : '?') + '</div></div>';
+    html += '<div class="stat-box"><div class="stat-label">TRADES</div><div class="stat-value">' + (bp.trades || '?') + '</div></div>';
+    html += '<div class="stat-box"><div class="stat-label">STOPS</div><div class="stat-value">Mom ' + (bp.stop_mom||'?') + ' / MR ' + (bp.stop_mr||'?') + '</div></div>';
+    html += '</div>';
+    html += '<div style="margin-top:8px;font-size:0.82rem;color:var(--text-dim)">';
+    html += 'Dual-arm: Momentum (RSI cross + RVOL surge) + Mean Reversion (RSI2 + Williams %R). ';
+    html += 'Ratcheting trail stops. 68-stock validated universe.';
+    html += '</div></div>';
+
+    // Strategy files
+    html += '<h3 style="margin:16px 0 8px;color:var(--green)">Strategy Files</h3>';
+    var files = [
+        {name: "asx_optimized_v9.pine", type: "Strategy", status: "ACTIVE"},
+        {name: "asx_hybrid_scanner_v8.pine", type: "Scanner", status: "ACTIVE"},
+    ];
+    for (var i = 0; i < files.length; i++) {
+        var f = files[i];
+        html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;display:flex;justify-content:space-between">';
+        html += '<span>' + f.name + ' <span style="color:var(--text-dim)">(' + f.type + ')</span></span>';
+        html += '<span style="color:var(--green)">' + f.status + '</span>';
+        html += '</div>';
+    }
+
+    div.innerHTML = html;
+})();
+
+// ---- Up & Coming Panel ----
+(function() {
+    var div = document.getElementById('upcoming-content');
+    if (!div) return;
+    var html = '';
+
+    html += '<p style="color:var(--text-dim)">Strategies being researched or tested by the pipeline.</p>';
+
+    var ideas = [
+        {name: "4H Multi-Timeframe", desc: "4H entries with daily confirmation — +15% PF in research", status: "RESEARCH", priority: "HIGH"},
+        {name: "Sector Momentum V1", desc: "Trade sector ETFs based on rotation signals", status: "CONCEPT", priority: "MEDIUM"},
+        {name: "Gold-Miner Pair Trade", desc: "Long miners when gold > EMA50, hedge when below", status: "RESEARCH", priority: "MEDIUM"},
+        {name: "Williams %R Pure MR", desc: "Pure mean reversion using WR(14) < -90 only", status: "BACKTEST", priority: "LOW"},
+    ];
+
+    for (var i = 0; i < ideas.length; i++) {
+        var s = ideas[i];
+        var color = s.priority === 'HIGH' ? 'var(--orange)' : s.priority === 'MEDIUM' ? 'var(--yellow)' : 'var(--text-dim)';
+        var statusColor = s.status === 'BACKTEST' ? 'var(--green)' : s.status === 'RESEARCH' ? 'var(--purple)' : 'var(--gray)';
+        html += '<div style="background:var(--bg2);padding:10px 12px;border-radius:4px;margin:4px 0;border-left:3px solid ' + color + '">';
+        html += '<div style="display:flex;justify-content:space-between"><div style="font-weight:bold">' + s.name + '</div>';
+        html += '<span style="background:' + statusColor + ';color:#fff;padding:2px 8px;border-radius:8px;font-size:0.75rem">' + s.status + '</span></div>';
+        html += '<div style="font-size:0.82rem;color:var(--text-dim);margin-top:3px">' + s.desc + '</div>';
+        html += '</div>';
+    }
+
+    div.innerHTML = html;
+})();
+
+// ---- Research Lab Panel ----
+(function() {
+    var div = document.getElementById('research-content');
+    if (!div) return;
+    var ar = DATA_AUDIT_RES;
+    var ie = DATA_IMPROVEMENT;
+    var html = '';
+
+    html += '<p style="color:var(--text-dim)">Research findings from audit + turbo agents.</p>';
+
+    // Improvement engine recs
+    if (ie && ie.recommendations) {
+        html += '<h3 style="margin:12px 0 8px;color:var(--orange)">Improvement Engine (' + ie.total_recommendations + ' recs)</h3>';
+        var recs = ie.recommendations || [];
+        for (var i = 0; i < Math.min(recs.length, 8); i++) {
+            var r = recs[i];
+            var color = r.priority === 'HIGH' ? 'var(--orange)' : r.priority === 'CRITICAL' ? 'var(--red)' : 'var(--yellow)';
+            html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;border-left:3px solid ' + color + ';font-size:0.84rem">';
+            html += '[' + (r.priority||'?') + '] ' + (r.action || r.detail || '?');
+            html += '</div>';
+        }
+    }
+
+    // Audit research proposals
+    if (ar && ar.proposals) {
+        html += '<h3 style="margin:16px 0 8px;color:var(--purple)">Research Proposals (' + (ar.total_proposals||0) + ')</h3>';
+        for (var i = 0; i < Math.min(ar.proposals.length, 8); i++) {
+            var p = ar.proposals[i];
+            var color = p.priority === 'HIGH' ? 'var(--orange)' : 'var(--yellow)';
+            html += '<div style="background:var(--bg2);padding:6px 10px;border-radius:4px;margin:3px 0;border-left:3px solid ' + color + ';font-size:0.84rem">';
+            html += '[' + p.area + '] ' + p.title;
+            html += '</div>';
+        }
+    }
+
+    div.innerHTML = html;
+})();
 
 // ---- All Agents Panel ----
 (function() {
